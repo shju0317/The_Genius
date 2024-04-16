@@ -46,8 +46,9 @@ public class SameNumMain {
             String str = sc.next();
             
             System.out.println("두 번째 숫자를 입력하세요");
+            System.out.println("두 번째 입력한 숫자는 풀에서 제외되지 않습니다");
             int num2 = sc.nextInt();
-            list.remove((Integer) num2);
+            
 
             // 계산 결과
             int result = controller.calculate(num1, str, num2);
