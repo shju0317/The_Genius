@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 
 
+
+
+
+
 public class MemberDAO {
 
 	Connection conn = null;
@@ -68,30 +72,102 @@ public class MemberDAO {
 			}
 			return cnt;
 		}
-	public MemberDTO login(MemberDTO dto) {
+	public boolean login(MemberDTO dto) {
 		dbOpen();
-		String sql = "select * from member where ID = ? and pw = ?";
+		String sql = "select * from member where id =? and pw =?";
 		try {
 			psmt= conn.prepareStatement(sql);
 			psmt.setString(1, dto.getID());
 			psmt.setString(2, dto.getPW());
 			rs = psmt.executeQuery();
-			ArrayList<MemberDTO> user = new ArrayList<>();
-			while(rs.next()) {
-				// get
-				String ID =rs.getString("ID");
-				int point = rs.getInt("point");
-				
+			if(rs.next()) {
+				return true;
 			}
+			return false;
+			
 		}catch (SQLException e) {
 			System.out.println("SQL 실행 에러");
 			e.printStackTrace();
 		}finally {
 			dbClose();
 		}
-		return dto;
+		return false;
+		
 	}
+	public int delete(MemberDTO dto) {
+		int cnt = 0;
+		dbOpen();
+		String sql ="delete from member where id = ? and pw = ?";
+		try {
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, dto.getID());
+			psmt.setString(2, dto.getPW());
+			cnt = psmt.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 실행 에러");
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return cnt;
+		
+	}
+	public boolean checkID(MemberDTO idto) {
+		dbOpen();
+		String sql = "select count(id) from member where id=?";
+		try {
+			
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, idto.getID());
+			rs = psmt.executeQuery();
+
+			rs.next(); // 행
+			if (rs.getInt(1)/* 열 */ == 1) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 실행 에러");
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		return false;
+		
+	}
+public ArrayList<MemberDTO> rank() {
+		
+		dbOpen();
+		ArrayList<MemberDTO> top = new ArrayList<MemberDTO>();
+		String sql ="SELECT id,point FROM (SELECT * FROM member ORDER BY point DESC) WHERE ROWNUM <=5";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				// get
+				String id =rs.getString("id");
+				int point =rs.getInt("point");
 	
+				MemberDTO dto = new MemberDTO(id,point);
+				top.add(dto);
+			}
+			
+			
+		}  catch (SQLException e) {
+			System.out.println("SQL 실행 에러");
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		
+		return top;
+		
 	}
+}
 
 
