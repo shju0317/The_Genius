@@ -63,7 +63,8 @@ public class Main {
 				con.login(dto);
 				if(con.login(dto)==true) {
 					System.out.println("로그인 성공 "+ dto.getID()+"님 환영합니다");
-					while(true) {
+					boolean a = true;
+					while(a) {
 					System.out.println("[1]로그아웃 [2]회원탈퇴 [3]게임선택 [4]랭킹확인");
 					int select2 = sc.nextInt();
 					if(select2 == 1) {
@@ -80,12 +81,15 @@ public class Main {
 							String DPW = sc.next();
 							if(dto.getID().equals(DID) && dto.getPW().equals(DPW)) {
 								con.delete(dto);
+								a = false;
 								break;
 							} else {
 								System.out.println("다시입력");
 								break;
 							}
-						}else if(yesno!="Y"&&yesno!="N") {
+						}else if(yesno.equals("N")) {
+							break;
+						}else {
 							System.out.println("Y/N중에 입력해주세요");
 						}
 					}
