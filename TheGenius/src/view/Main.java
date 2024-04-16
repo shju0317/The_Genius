@@ -2,12 +2,16 @@ package view;
 
 import java.util.Scanner;
 
+
+
+
+
 public class Main {
 	public static void main(String[] args) {
 		//test
 		// ttt
 		Scanner sc = new Scanner(System.in);
-		
+		controller.MemberCon con = new controller.MemberCon();
 		System.out.println("\r\n"
 				+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
 				+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
@@ -49,10 +53,15 @@ public class Main {
 			
 			if(select == 1) { // 로그인
 				System.out.println("===== 로그인 =====");
-				
-				
+				System.out.println("id");
+				String ID = sc.next();
+				System.out.println("pw");
+				String PW = sc.next();
+				model.MemberDTO dto = new model.MemberDTO(ID,PW);
+				con.login(dto);
 			}else if(select == 2){ // 회원가입 
 				System.out.println("===== 회원가입 =====");
+				con.joinmember();
 								
 			}else{
 				System.out.println("로그인이 필요합니다 :)");
