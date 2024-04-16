@@ -1,0 +1,71 @@
+package view;
+
+import java.util.Scanner;
+
+public class RockPaperScissorsMain {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("베팅 가위바위보");
+	
+	    
+	    
+	    System.out.print("가위,바위,보? ");
+	    String user = keyScan.nextLine();
+	    System.out.printf("사용자: %s\n", user);
+
+	    // 컴퓨터의 가위, 바위, 보 계산하기
+	    Random random = new Random();
+	    int randomNumber = random.nextInt(3); // 0 이상 3 미만의 정수 반환
+
+	    String computer;
+	    if (randomNumber == 0) 
+	      computer = "가위";
+	    else if (randomNumber == 1) 
+	      computer = "바위";
+	    else 
+	      computer = "보";
+	    
+	    System.out.printf("컴퓨터: %s\n", computer);
+	    
+	    if (user.equals("가위")) {
+	      if (computer.equals("보")) {
+	        System.out.println("=> 당신이 이겼습니다.");
+	        return;
+	      } else if (computer.equals("바위")) {
+	        System.out.println("=> 당신이 졌습니다.");
+	        return;
+	      } else {
+	        System.out.println("=> 비겼습니다.");
+	        return;
+	      }
+	    } 
+	    if (user.equals("바위")) {
+	      if (computer.equals("가위")) {
+	        System.out.println("=> 당신이 이겼습니다.");
+	        return;
+	      } else if (computer.equals("보")) {
+	        System.out.println("=> 당신이 졌습니다.");
+	        return;
+	      } else {
+	        System.out.println("=> 비겼습니다.");
+	        return;
+	      }
+	    } 
+	    if (user.equals("보")) {
+	      if (computer.equals("바위")) {
+	        System.out.println("=> 당신이 이겼습니다.");
+	        return;
+	      } else if (computer.equals("가위")) {
+	        System.out.println("=> 당신이 졌습니다.");
+	        return;
+	      } else {
+	        System.out.println("=> 비겼습니다.");
+	        return;
+	      }
+	    }
+	    
+	    
+	  }
+	}
+}
