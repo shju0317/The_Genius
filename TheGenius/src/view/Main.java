@@ -96,8 +96,9 @@ public class Main {
 						con.rank();
 					}
 					}
+				}else {
+					System.out.println("다시 시도하십시오");
 				}
-				System.out.println("다시 시도하십시오");
 			}else if(select == 2){ // 회원가입 
 				System.out.println("===== 회원가입 =====");
 				con.joinmember();
