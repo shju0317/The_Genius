@@ -10,6 +10,10 @@ public class MemberDTO {
 
 
 
+	public MemberDTO(String iD) {
+		ID = iD;
+	}
+
 	public MemberDTO(String iD, String pW, int point) {
 		ID = iD;
 		PW = pW;
