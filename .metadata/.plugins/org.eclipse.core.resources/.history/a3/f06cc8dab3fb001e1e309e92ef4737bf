@@ -1,0 +1,8 @@
+package view;
+
+public class RockPaperScissorsMain {
+	public static void main(String[] args) {
+		System.out.println("베팅 가위바위보");
+		
+	}
+}
