@@ -33,8 +33,13 @@ public class SameNumController {
 	    	Scanner sc = new Scanner(System.in);
 	    	Random rd = new Random();
 	    	int score = 0;
-	        System.out.println("같은숫자아스키아트");
-	        System.out.println("게임 설명문");
+	        controller.picturecon pic = new controller.picturecon();
+	        pic.pictureSame();
+	        System.out.println("┌플레이어는 1부터 12의 숫자와 사칙연산자를 받습니다\n"
+	                + "│매 라운드마다 연산 가능한 랜덤 숫자가 제시됩니다\n"
+	                + "│플레이어는 숫자, 연산자, 숫자 순서로 패를 조합합니다\n"
+	                + "│연산 결과가 제시된 숫자와 일치한다면 점수를 얻습니다\n"
+	                + "└첫 번째로 낸 숫자는 숫자 풀에서 제외됩니다\n");
 
 	        controller.SameNumController controller = new controller.SameNumController();
 	        

@@ -15,8 +15,8 @@ public class Main {
 		// ttt
 		Scanner sc = new Scanner(System.in);
 		controller.MemberCon con = new controller.MemberCon();
-		controller.Maincon Mcon = new controller.Maincon();
-		Mcon.picture();
+		controller.picturecon Mcon = new controller.picturecon();
+		Mcon.pictureMain();
 		while(true) {
 			System.out.println("[1]로그인 [2]회원가입 [3]종료");
 			System.out.println("선택>> ");
