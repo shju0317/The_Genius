@@ -7,7 +7,7 @@ import controller.MainCon;
 import controller.RockPaperScissorsCon;
 
 public class RockPaperScissorsMain {
-	public static void excute() {
+	public static void startGame() {
 		RockPaperScissorsCon con = new RockPaperScissorsCon();
 		MainCon mainCon = new MainCon();
 

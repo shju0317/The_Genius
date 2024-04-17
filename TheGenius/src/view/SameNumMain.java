@@ -13,8 +13,21 @@ public class SameNumMain {
     int score = 0;
 
     public void startGame() {
-        System.out.println("같은숫자아스키아트");
-        System.out.println("게임 설명문");
+    	System.out.println("\r\n"
+                + "______  _____  _   _ ______     _____   ___  ___  ___ _____     _   _  _   _ ___  _________  _____ ______ \r\n"
+                + "|  ___||_   _|| \\ | ||  _  \\   /  ___| / _ \\ |  \\/  ||  ___|   | \\ | || | | ||  \\/  || ___ \\|  ___|| ___ \\\r\n"
+                + "| |_     | |  |  \\| || | | |   \\ `--. / /_\\ \\| .  . || |__     |  \\| || | | || .  . || |_/ /| |__  | |_/ /\r\n"
+                + "|  _|    | |  | . ` || | | |    `--. \\|  _  || |\\/| ||  __|    | . ` || | | || |\\/| || ___ \\|  __| |    / \r\n"
+                + "| |     _| |_ | |\\  || |/ /    /\\__/ /| | | || |  | || |___    | |\\  || |_| || |  | || |_/ /| |___ | |\\ \\ \r\n"
+                + "\\_|     \\___/ \\_| \\_/|___/     \\____/ \\_| |_/\\_|  |_/\\____/    \\_| \\_/ \\___/ \\_|  |_/\\____/ \\____/ \\_| \\_|\r\n"
+                + "                                                                                                          \r\n"
+                + "                                                                                                          \r\n"
+                + "");
+          System.out.println("┌플레이어는 1부터 12의 숫자와 사칙연산자를 받습니다\n"
+                + "│매 라운드마다 연산 가능한 랜덤 숫자가 제시됩니다\n"
+                + "│플레이어는 숫자, 연산자, 숫자 순서로 패를 조합합니다\n"
+                + "│연산 결과가 제시된 숫자와 일치한다면 점수를 얻습니다\n"
+                + "└첫 번째로 낸 숫자는 숫자 풀에서 제외됩니다\n");
 
         SameNumController controller = new SameNumController();
         
@@ -66,11 +79,11 @@ public class SameNumMain {
                 break;
             }
         }
-        sc.close();
+        
     }
 
-    public static void main(String[] args) {
-        SameNumMain game = new SameNumMain();
-        game.startGame();
-    }
+//    public static void main(String[] args) {
+//        SameNumMain game = new SameNumMain();
+//        game.startGame();
+//    }
 }
