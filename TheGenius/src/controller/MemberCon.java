@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import model.MemberDAO;
 import model.MemberDTO;
-import model.gameDTO;
 
 
 
