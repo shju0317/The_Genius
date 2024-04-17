@@ -68,6 +68,7 @@ public class Main {
 					System.out.println("[1]로그아웃 [2]회원탈퇴 [3]게임선택 [4]랭킹확인");
 					int select2 = sc.nextInt();
 					if(select2 == 1) {
+						System.out.println("로그아웃 하셨습니다");
 						break;
 					}else if (select2 == 2) {//회원탈퇴
 						while(true) {
@@ -97,8 +98,7 @@ public class Main {
 					}else if(select2 == 3) {
 						
 					}else if(select2 == 4) {//랭킹확인
-						con.rank();
-					}
+						con.rank();					}
 					}
 				}else {
 					System.out.println("다시 시도하십시오");

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import model.MemberDAO;
 import model.MemberDTO;
+import model.gameDTO;
 
 
 
@@ -51,12 +52,66 @@ public class MemberCon {
 	}
 
 	public void rank() {
+		System.out.println("[1]1번게임랭킹 [2]2번게임랭킹 [3]3번게임랭킹 [4]토탈랭킹");
+		int selectrank = sc.nextInt();
+		if(selectrank==1) {
+			game1rank();
+		}else if(selectrank==2) {
+			game2rank();
+		}else if(selectrank==3) {
+			game3rank();
+		}else if(selectrank==4) {
+			totalrank();
+		}else {
+			System.out.println("다시입력해주세요");
+		}
+
+	}
+	
+	public void game1rank() {
 		int num = 1;
 		MemberDAO dao = new MemberDAO();
-		ArrayList <MemberDTO> top = dao.rank();
-		System.out.println("===============랭킹=================");
+		ArrayList <MemberDTO> top = dao.game1rank();
+		System.out.println("=============1번게임랭킹=================");
 		for(MemberDTO i : top) {
-			System.out.println(num+"등\t"+i.getID()+"\t"+i.getPoint());
+			System.out.println(num+"등\t"+i.getID()+"\t"+i.getGame1());
+			num++;
+		}
+		
+	}
+	
+	public void game2rank() {
+		int num = 1;
+		MemberDAO dao = new MemberDAO();
+		
+		ArrayList <MemberDTO> top = dao.game2rank();
+		System.out.println("============2번게임랭킹=================");
+		for(MemberDTO i : top) {
+			System.out.println(num+"등\t"+i.getID()+"\t"+i.getGame2());
+			num++;
+		}
+		
+	}
+	
+	public void game3rank() {
+		int num = 1;
+		MemberDAO dao = new MemberDAO();
+		ArrayList <MemberDTO> top = dao.game3rank();
+		System.out.println("============3번게임랭킹=================");
+		for(MemberDTO i : top) {
+			System.out.println(num+"등\t"+i.getID()+"\t"+i.getGame3());
+			num++;
+		}
+		
+	}
+	
+	public void totalrank() {
+		int num = 1;
+		MemberDAO dao = new MemberDAO();
+		ArrayList <MemberDTO> top = dao.totalrank();
+		System.out.println("=============종합랭킹=================");
+		for(MemberDTO i : top) {
+			System.out.println(num+"등\t"+i.getID()+"\t"+i.getTotal());
 			num++;
 		}
 		

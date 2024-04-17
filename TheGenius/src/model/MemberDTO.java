@@ -4,33 +4,76 @@ public class MemberDTO {
 
 	private String ID;
  	private String PW;
- 	private int point;
+ 	
+	private int game1;
+	private int game2;
+ 	private int game3;
+ 	private int total;
+ 	
+ 
+
+	
 
  	
 
+
+
+	
+
+	public MemberDTO(String iD, int game1, int game2, int game3, int total) {
+		super();
+		ID = iD;
+		this.game1 = game1;
+		this.game2 = game2;
+		this.game3 = game3;
+		this.total = total;
+	}
 
 
 	public MemberDTO(String iD) {
 		ID = iD;
 	}
 
-	public MemberDTO(String iD, String pW, int point) {
-		ID = iD;
-		PW = pW;
-		this.point = point;
-	}
 
 	public MemberDTO(String iD, String pW) {
 		ID = iD;
 		PW = pW;
 	}
 
-	public MemberDTO(String iD, int point) {
-		ID = iD;
-		this.point = point;
-	}
+
 
 	//getter/setter
+	public int getGame1() {
+		return game1;
+	}
+	
+	public void setGame1(int game1) {
+		this.game1 = game1;
+	}
+	
+	public int getGame2() {
+		return game2;
+	}
+	
+	public void setGame2(int game2) {
+		this.game2 = game2;
+	}
+	
+	public int getGame3() {
+		return game3;
+	}
+	
+	public void setGame3(int game3) {
+		this.game3 = game3;
+	}
+	
+	public int getTotal() {
+		return total;
+	}
+	
+	public void setTotal(int total) {
+		this.total = total;
+	}
  	public String getID() {
 		return ID;
 	}
@@ -47,11 +90,6 @@ public class MemberDTO {
 		PW = pW;
 	}
 
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
+	
+	
 }

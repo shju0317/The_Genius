@@ -53,7 +53,7 @@ public class MemberDAO {
 			
 			int cnt = 0;
 			dbOpen();
-			String sql ="insert into member values(?,?,0)";
+			String sql ="insert into member values(?,?,0,0,0,0)";
 			try {
 				
 				psmt = conn.prepareStatement(sql);
@@ -140,20 +140,22 @@ public class MemberDAO {
 		return false;
 		
 	}
-public ArrayList<MemberDTO> rank() {
+public ArrayList<MemberDTO> totalrank() {
 		
 		dbOpen();
 		ArrayList<MemberDTO> top = new ArrayList<MemberDTO>();
-		String sql ="SELECT id,point FROM (SELECT * FROM member ORDER BY point DESC) WHERE ROWNUM <=5";
+		String sql ="SELECT * FROM (SELECT * FROM member ORDER BY total DESC) WHERE ROWNUM <=5";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				// get
 				String id =rs.getString("id");
-				int point =rs.getInt("point");
-	
-				MemberDTO dto = new MemberDTO(id,point);
+				int game1 =rs.getInt("game1");
+				int game2 =rs.getInt("game2");
+				int game3 =rs.getInt("game3");
+				int total =rs.getInt("total");
+				MemberDTO dto = new MemberDTO(id,game1,game2,game3, total);
 				top.add(dto);
 			}
 			
@@ -168,6 +170,96 @@ public ArrayList<MemberDTO> rank() {
 		return top;
 		
 	}
+public ArrayList<MemberDTO> game1rank() {
+	
+	dbOpen();
+	ArrayList<MemberDTO> top = new ArrayList<MemberDTO>();
+	String sql ="SELECT * FROM (SELECT * FROM member ORDER BY game1 DESC) WHERE ROWNUM <=5";
+	try {
+		psmt = conn.prepareStatement(sql);
+		rs = psmt.executeQuery();
+		while(rs.next()) {
+			// get
+			String id =rs.getString("id");
+			int game1 =rs.getInt("game1");
+			int game2 =rs.getInt("game2");
+			int game3 =rs.getInt("game3");
+			int total =rs.getInt("total");
+			MemberDTO dto = new MemberDTO(id,game1,game2,game3, total);
+			top.add(dto);
+		}
+		
+		
+	}  catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	
+	return top;
+	
+}
+public ArrayList<MemberDTO> game2rank() {
+	
+	dbOpen();
+	ArrayList<MemberDTO> top = new ArrayList<MemberDTO>();
+	String sql ="SELECT * FROM (SELECT * FROM member ORDER BY game2 DESC) WHERE ROWNUM <=5";
+	try {
+		psmt = conn.prepareStatement(sql);
+		rs = psmt.executeQuery();
+		while(rs.next()) {
+			// get
+			String id =rs.getString("id");
+			int game1 =rs.getInt("game1");
+			int game2 =rs.getInt("game2");
+			int game3 =rs.getInt("game3");
+			int total =rs.getInt("total");
+			MemberDTO dto = new MemberDTO(id,game1,game2,game3, total);
+			top.add(dto);
+		}
+		
+		
+	}  catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	
+	return top;
+	
+}
+public ArrayList<MemberDTO> game3rank() {
+	
+	dbOpen();
+	ArrayList<MemberDTO> top = new ArrayList<MemberDTO>();
+	String sql ="SELECT * FROM (SELECT * FROM member ORDER BY game3 DESC) WHERE ROWNUM <=5";
+	try {
+		psmt = conn.prepareStatement(sql);
+		rs = psmt.executeQuery();
+		while(rs.next()) {
+			// get
+			String id =rs.getString("id");
+			int game1 =rs.getInt("game1");
+			int game2 =rs.getInt("game2");
+			int game3 =rs.getInt("game3");
+			int total =rs.getInt("total");
+			MemberDTO dto = new MemberDTO(id,game1,game2,game3, total);
+			top.add(dto);
+		}
+		
+		
+	}  catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	
+	return top;
+	
+}
 }
 
 
