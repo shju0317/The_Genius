@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 
 public class MemberDAO {
-
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs= null;
@@ -53,7 +52,7 @@ public class MemberDAO {
 			
 			int cnt = 0;
 			dbOpen();
-			String sql ="insert into member values(?,?,0)";
+			String sql ="insert into member values(?,?,0,0,0,0)";
 			try {
 				
 				psmt = conn.prepareStatement(sql);
