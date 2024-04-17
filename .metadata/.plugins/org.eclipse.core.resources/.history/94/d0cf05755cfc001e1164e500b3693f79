@@ -36,12 +36,11 @@ public class RockPaperScissorsCon {
 				+ "\\_| \\_|\\____/ \\____/  \\___/ \\_____/  \\_/  ";
 		
 		if(realResult == bettingResult) {
-			mainCon.changeColor(resultText, "cyan");
+			
 			System.out.println("베팅에 성공했습니다.");
 			System.out.println("베팅한 점수 [ " + bettingScore + " ]의 2배만큼 점수가 증가합니다.");
 			score = bettingScore * 2;
 		}else {
-			mainCon.changeColor(resultText, "cyan");
 			System.out.println("베팅에 실패했습니다.");
 			System.out.println("베팅한 점수 [ " + bettingScore + " ] 만큼 점수가 감소합니다.");
 			score -= bettingScore;

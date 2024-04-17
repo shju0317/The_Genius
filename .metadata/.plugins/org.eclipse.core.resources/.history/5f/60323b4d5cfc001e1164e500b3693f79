@@ -1,7 +1,6 @@
 package controller;
 
 public class RockPaperScissorsCon {
-	MainCon mainCon = new MainCon();
 	
 	// 상대방 표식과 승패 결과 출력
 	public void showResult(int playerMark, int computerMark){
@@ -27,21 +26,11 @@ public class RockPaperScissorsCon {
 	
 	// 베팅 결과
 	public int getBettingResult(int realResult, int bettingResult, int bettingScore, int score) {
-		
-		String resultText = "______  _____  _____  _   _  _      _____ \r\n"
-				+ "| ___ \\|  ___|/  ___|| | | || |    |_   _|\r\n"
-				+ "| |_/ /| |__  \\ `--. | | | || |      | |  \r\n"
-				+ "|    / |  __|  `--. \\| | | || |      | |  \r\n"
-				+ "| |\\ \\ | |___ /\\__/ /| |_| || |____  | |  \r\n"
-				+ "\\_| \\_|\\____/ \\____/  \\___/ \\_____/  \\_/  ";
-		
 		if(realResult == bettingResult) {
-			mainCon.changeColor(resultText, "cyan");
 			System.out.println("베팅에 성공했습니다.");
 			System.out.println("베팅한 점수 [ " + bettingScore + " ]의 2배만큼 점수가 증가합니다.");
 			score = bettingScore * 2;
 		}else {
-			mainCon.changeColor(resultText, "cyan");
 			System.out.println("베팅에 실패했습니다.");
 			System.out.println("베팅한 점수 [ " + bettingScore + " ] 만큼 점수가 감소합니다.");
 			score -= bettingScore;
