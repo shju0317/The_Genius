@@ -1,6 +1,4 @@
-package Controller;
-
-import Model.SameNumDAO;
+package controller;
 
 public class SameNumController {
 

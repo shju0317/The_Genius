@@ -1,12 +1,11 @@
-package View;
+package view;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import Controller.SameNumController;
-import Model.SameNumDAO;
-import Model.SameNumDTO;
+import controller.SameNumController;
+import model.SameNumDAO;
 
 public class SameNumMain {
     Scanner sc = new Scanner(System.in);
