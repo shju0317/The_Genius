@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RockPaperScissors {
-	
+	private int sscore = 0;
 	public void RPgamestart(){
 		Scanner sc = new Scanner(System.in);
 		
@@ -57,11 +57,16 @@ public class RockPaperScissors {
 //	    System.out.println(getRealResult(playerMark, computerMark));
 	    int realResult = getRealResult(playerMark, computerMark);
 	    
-	    score = getBettingResult(realResult, bettingResult, bettingScore, score);
-	    System.out.println("최종점수" + score);
+	    sscore = getBettingResult(realResult, bettingResult, bettingScore, score);
+	    System.out.println("최종점수" + sscore);
 	    
 	    
 	  }
+	public int getSscore() {
+		return sscore;
+	}
+	
+	
 	
 	
 	public int getBettingResult(int realResult, int bettingResult, int bettingScore, int score) {
@@ -96,4 +101,5 @@ public class RockPaperScissors {
 		
 		System.out.println(result[playerMark][computerMark]);
 	}
+	
 }

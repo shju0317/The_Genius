@@ -10,6 +10,7 @@ import controller.SameNumController;
 
 
 public class Main {
+	
 	public static void main(String[] args) {
 		//test
 		// ttt
@@ -31,6 +32,7 @@ public class Main {
 				model.MemberDTO dto = new model.MemberDTO(ID,PW);
 				con.login(dto);
 				if(con.login(dto)==true) {
+					dto = con.join(dto);
 					System.out.println("로그인 성공 "+ dto.getID()+"님 환영합니다");
 					boolean a = true;
 					while(a) {
@@ -70,9 +72,25 @@ public class Main {
 						if(selectgame==1) {
 							controller.SameNumController SNgame = new controller.SameNumController();
 							SNgame.SNstartGame();
+							con.game1point(dto);
+							int score1 = dto.getGame1();
+							int score2 = SNgame.getScore();
+							System.out.println(score1+" dd "+score2);
+							if(score1<score2){
+								int total = score2+(int)dto.getGame2()+(int)dto.getGame3();
+								con.upscore1(dto,score2,total);
+							}
 						}else if (selectgame==2) {
 							controller.RockPaperScissors RPgame = new controller.RockPaperScissors();
 							RPgame.RPgamestart();
+							con.game2point(dto);
+							int score1 = dto.getGame2();
+							int score2 = RPgame.getSscore();
+							System.out.println(score1+" dd "+score2);
+							if(score1<score2){
+								int total = (int)dto.getGame1()+score2+(int)dto.getGame3();
+								con.upscore2(dto,score2,total);
+							}
 						}
 					}else if(select2 == 4) {//랭킹확인
 						con.rank();					}
@@ -98,4 +116,6 @@ public class Main {
 	
 	
 	}
+
+    
 }

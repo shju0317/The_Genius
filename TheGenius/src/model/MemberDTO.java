@@ -33,6 +33,9 @@ public class MemberDTO {
 	public MemberDTO(String iD) {
 		ID = iD;
 	}
+//	public MemberDTO(int game1) {
+//		this.game1 = game1;
+//	}
 
 
 	public MemberDTO(String iD, String pW) {
@@ -81,6 +84,17 @@ public class MemberDTO {
 	public void setID(String iD) {
 		ID = iD;
 	}
+
+	public MemberDTO(String iD, String pW, int game1, int game2, int game3, int total) {
+		super();
+		ID = iD;
+		PW = pW;
+		this.game1 = game1;
+		this.game2 = game2;
+		this.game3 = game3;
+		this.total = total;
+	}
+
 
 	public String getPW() {
 		return PW;

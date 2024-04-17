@@ -7,6 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import controller.SameNumController;
+
+
+
 
 
 
@@ -18,7 +22,6 @@ public class MemberDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs= null;
-	
 	
 	public void dbOpen() {
 
@@ -259,6 +262,136 @@ public ArrayList<MemberDTO> game3rank() {
 	
 	return top;
 	
+}
+public MemberDTO join(MemberDTO dto) {
+	dbOpen();
+	String sql = "select * from member where id =?";
+	try {
+		psmt= conn.prepareStatement(sql);
+		psmt.setString(1, dto.getID());
+		rs = psmt.executeQuery();
+		
+		if(rs.next()) {
+			// get
+			String id = rs.getString("ID");
+			int game1 = rs.getInt("game1");
+			int game2 = rs.getInt("game2");
+			int game3 = rs.getInt("game3");
+			int total = rs.getInt("Total");
+			
+			dto = new MemberDTO(id,game1,game2,game3,total);
+		}
+		
+		
+	}catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return dto;
+}
+
+public MemberDTO game1point(MemberDTO dto) {
+	dbOpen();
+	String sql = "select * from member where id =?";
+	try {
+		psmt= conn.prepareStatement(sql);
+		psmt.setString(1, dto.getID());
+		rs = psmt.executeQuery();
+	
+		if(rs.next()) {
+			
+			String ID =rs.getString("ID");
+	
+			int game1 = rs.getInt("game1");
+			int game2 = rs.getInt("game2");
+			int game3 = rs.getInt("game3");
+			int total = rs.getInt("total");
+			dto = new MemberDTO(ID,game1,game2,game3,total);
+		}
+		
+		
+	}catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return dto;
+}
+public int upscore1(MemberDTO dto,int score,int total) {
+	
+	dbOpen();
+	int cnt = 0;
+	
+	String sql = "Update member set game1 =?,total =? where id =?";
+	System.out.println(score);
+	System.out.println(dto.getID());
+	try {
+		psmt= conn.prepareStatement(sql);
+		psmt.setInt(1, score);
+		psmt.setInt(2, total);
+		psmt.setString(3, dto.getID());
+		cnt = psmt.executeUpdate();
+	}catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return cnt;
+}
+public MemberDTO game2point(MemberDTO dto) {
+	dbOpen();
+	String sql = "select * from member where id =?";
+	try {
+		psmt= conn.prepareStatement(sql);
+		psmt.setString(1, dto.getID());
+		rs = psmt.executeQuery();
+		
+		if(rs.next()) {
+			
+				String ID =rs.getString("ID");
+				int game1 = rs.getInt("game1");
+				int game2 = rs.getInt("game2");
+				int game3 = rs.getInt("game3");
+				int total = rs.getInt("total");
+				dto = new MemberDTO(ID,game1,game2,game3,total);
+			}
+		
+		
+		
+	}catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return dto;
+}
+public int upscore2(MemberDTO dto,int score,int total) {
+	
+	dbOpen();
+	int cnt = 0;
+	
+	String sql = "Update member set game2 =?,total =? where id =?";
+	System.out.println(score);
+	System.out.println(dto.getID());
+
+	try {
+		psmt= conn.prepareStatement(sql);
+		psmt.setInt(1, score);
+		psmt.setInt(2, total);
+		psmt.setString(3, dto.getID());
+		cnt = psmt.executeUpdate();
+	}catch (SQLException e) {
+		System.out.println("SQL 실행 에러");
+		e.printStackTrace();
+	}finally {
+		dbClose();
+	}
+	return cnt;
 }
 }
 

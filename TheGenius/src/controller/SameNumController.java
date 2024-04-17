@@ -5,8 +5,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 import model.SameNumDAO;
+import view.Main;
 
 public class SameNumController {
+	 private int score = 0; 
 
     public int calculate(int num1, String operator, int num2) {
         int result = 0;
@@ -32,7 +34,7 @@ public class SameNumController {
 	    public void SNstartGame() {
 	    	Scanner sc = new Scanner(System.in);
 	    	Random rd = new Random();
-	    	int score = 0;
+//	    	int score = 0;
 	        controller.picturecon pic = new controller.picturecon();
 	        pic.pictureSame();
 	        System.out.println("┌플레이어는 1부터 12의 숫자와 사칙연산자를 받습니다\n"
@@ -42,7 +44,7 @@ public class SameNumController {
 	                + "└첫 번째로 낸 숫자는 숫자 풀에서 제외됩니다\n");
 
 	        controller.SameNumController controller = new controller.SameNumController();
-	        
+	        controller.MemberCon con = new MemberCon();
 	        
 	        ArrayList<Integer> list = new ArrayList<>();
 	        for(int i=0; i<12; i++) {
@@ -91,8 +93,13 @@ public class SameNumController {
 	                break;
 	            }
 	        }
+	        
 	       
 	    }
+	    public int getScore() {
+	        return score;
+	    }
+	 
     
 
 }

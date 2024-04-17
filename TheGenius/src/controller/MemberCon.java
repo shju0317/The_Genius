@@ -24,12 +24,18 @@ public class MemberCon {
 		int cnt = dao.joinmember(dto);
 		if(cnt>0 ) {
 			System.out.println("등록 완료");
+			
 		}else {
 			System.out.println("등록 실패");
 		}
 		}else {
 			System.out.println("중복된 id가 있습니다.");
 		}
+	}
+	public MemberDTO join(MemberDTO dto) {
+		MemberDAO dao = new MemberDAO();
+		dto = dao.join(dto);
+		return dto;
 	}
 	public boolean login(MemberDTO dto) {
 		MemberDAO dao = new MemberDAO();
@@ -116,4 +122,53 @@ public class MemberCon {
 		}
 		
 	}
+	
+	public MemberDTO game1point(MemberDTO dto) {
+		MemberDAO dao = new MemberDAO();
+		dto = dao.game1point(dto);
+		return dto;
+}
+	
+	public void upscore1(MemberDTO dto,int score,int total) {
+		MemberDAO dao = new MemberDAO();
+		int cnt = dao.upscore1(dto,score,total);
+		if(cnt>0 ) {
+			System.out.println("수정 완료");
+		}else {
+			System.out.println("수정 실패");
+		}
+		
+	}
+	public MemberDTO game2point(MemberDTO dto) {
+		MemberDAO dao = new MemberDAO();
+		dto = dao.game2point(dto);
+		return dto;
+}
+	
+	public void upscore2(MemberDTO dto,int score,int total) {
+		MemberDAO dao = new MemberDAO();
+		int cnt = dao.upscore2(dto,score,total);
+		if(cnt>0 ) {
+			System.out.println("수정 완료");
+		}else {
+			System.out.println("수정 실패");
+		}
+		
+	}
+//	public MemberDTO game3point(MemberDTO dto) {
+//		MemberDAO dao = new MemberDAO();
+//		dto = dao.game1point(dto);
+//		return dto;
+//}
+//	
+//	public void upscore3(MemberDTO dto,int score) {
+//		MemberDAO dao = new MemberDAO();
+//		int cnt = dao.upscore1(dto,score);
+//		if(cnt>0 ) {
+//			System.out.println("수정 완료");
+//		}else {
+//			System.out.println("수정 실패");
+//		}
+//		
+//	}
 }
