@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import controller.MainCon;
 import controller.MemberCon;
 
 
@@ -10,11 +11,12 @@ import controller.MemberCon;
 
 public class Main {
 	public static void main(String[] args) {
-		//test
-		// ttt
-		Scanner sc = new Scanner(System.in);
+		
+		MainCon mainCon = new MainCon();
 		controller.MemberCon con = new controller.MemberCon();
-		System.out.println("\r\n"
+		Scanner sc = new Scanner(System.in);
+		
+		String welcomeMent = "\r\n"
 				+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
 				+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
 				+ "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n"
@@ -42,11 +44,13 @@ public class Main {
 				+ "@@@@@@ **@@@@    @@  $=   @            @@$*!;=#@@$~-@@*.~=@@@@@=*;;@@@\r\n"
 				+ "@@@@@@   @@@    @@@@@@@   @@@@@@@@@@   @@@@@@@@@@$-~@: -=@@@@@@@$$#**@\r\n"
 				+ "@@@@@@@@@@@    @@@@@@@@   @@@@@@@@@@   @@@@@@@@@@$-!$;-$$====*=*===~*#\r\n"
-				+ "@@@@@@@@@@    @@@@@@@@@   @@@@@@@@@@   @@@@@@@@@@$-=:                 :\r\n"
+				+ "@@@@@@@@@@    @@@@@@@@@   @@@@@@@@@@   @@@@@@@@@@$-=:                :\r\n"
 				+ "@@@@@@@@@    @@@@@@@@@@   @@@@@@@@@@   @@@@@@@@@@$=;-$========$******=\r\n"
 				+ "@@@@@@@@@$$@@@@@@@@@@@@   @@@@@@@@@@   @@@@@@@@@@@;:*@@@@@@@@@@@@@@@@@\r\n"
-				+ "@@@@@@@@@@@@@@@@@@@@@@@@$#@@@@@@@@@@@$*@@@@@@@@@$=;@@@@@@@@@@@@@@@@@@@");
-		
+				+ "@@@@@@@@@@@@@@@@@@@@@@@@$#@@@@@@@@@@@$*@@@@@@@@@$=;@@@@@@@@@@@@@@@@@@@";
+				
+			mainCon.changeColor(welcomeMent, "cyan");
+//			mainCon.changeBgColor(welcomeMent, "yellow");
 		
 		while(true) {
 			System.out.println("[1]로그인 [2]회원가입 [3]종료");

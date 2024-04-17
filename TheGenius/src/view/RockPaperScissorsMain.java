@@ -3,11 +3,15 @@ package view;
 import java.util.Random;
 import java.util.Scanner;
 
+import controller.RockPaperScissorsCon;
+
 public class RockPaperScissorsMain {
 	public static void main(String[] args) {
+		RockPaperScissorsCon con = new RockPaperScissorsCon();
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println(";;!~~~~~~~~~~--------~--~~---~~~~~~---~~~~~~~~~~~~~~~~---~---~----------~----~~~~~~~~~~~~~----~~~~~---~~-----------~~~~~~~~-~*$$$$\r\n"
+		System.out.println("\u001B[36m" + ";;!~~~~~~~~~~--------~--~~---~~~~~~---~~~~~~~~~~~~~~~~---~---~----------~----~~~~~~~~~~~~~----~~~~~---~~-----------~~~~~~~~-~*$$$$\r\n"
 				+ ";!;~~~~~--~~---------~--~~---~~~~~~--~~~~~~~~~~~~~-~------~-~~~~~~~~~~~-------~~~~~~~~~~~~~--~~~~~~---~~~----------~~~-~~~~~~!=$$$\r\n"
 				+ ";;:~~~~~--~~~~~~~----~-----~-~~:~~--~~~~~~~~~~~~~~~~~~-----~~~~~~~~~~~~~---~~~~~~~-~~::~~~~---~~~~---~~~~~~--------~~--~~~~~~;=$$$\r\n"
 				+ ";!:~~~::~~:::;:~~:::~~~~~~~~:;~~~::~~---~~~~~~~~:;;~~:::~~-~~::~:~~:;~~:::~~~~~::~~:!~~:::~-~~~:~~~~~:!~~:::::::::~---::~:::~:=$$$\r\n"
@@ -31,7 +35,7 @@ public class RockPaperScissorsMain {
 				+ "~~~~~~~~~-~:;:~;;:~~-~~~:::::::::~~~-~~-~~~~~~~~~~-;;:~~-~--~;:~~~~-~:;:~~~~~~~~~~~~-:::~~~~~-~:;~~~~~-~;:~~~~~~-----~-~~~~~~~~~~:\r\n"
 				+ "~~~~~~~~~~--~-~~~~~~----~-~~~~~~-~~~~~~~~~--~~~--~~~-~~~~~~~~-~~~~~~~-~~~~~~~~~----~--~~~~~~~~~-~~~~~--------~~~~~~~-~~~~~~~~~~~~~\r\n"
 				+ "~~~~~~~~~~~~~~~~~~~~~~~~~-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-~-~~~~~~~~~~~~~~~~~~~~~~~~\r\n"
-				+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				+ "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" + "\u001B[0m");
 	
 	    System.out.print("베팅할 점수를 입력하세요> ");
 	    int bettingScore = sc.nextInt();
@@ -52,50 +56,16 @@ public class RockPaperScissorsMain {
 	    Random random = new Random();
 	    int computerMark = random.nextInt(3); // 0 이상 3 미만의 정수 반환
 	    
-	    showResult(playerMark, computerMark);
+	    con.showResult(playerMark, computerMark);
 //	    System.out.println(getRealResult(playerMark, computerMark));
-	    int realResult = getRealResult(playerMark, computerMark);
+	    int realResult = con.getRealResult(playerMark, computerMark);
 	    
-	    score = getBettingResult(realResult, bettingResult, bettingScore, score);
+	    score = con.getBettingResult(realResult, bettingResult, bettingScore, score);
 	    System.out.println("최종점수" + score);
 	    
 	    
 	  }
 	
 	
-	static void showResult(int playerMark, int computerMark){
-		String[][] result = { 
-			{"상대방은 가위를 냈습니다.\n비겼습니다.", "상대방은 바위를 냈습니다.\n졌습니다.", "상대방은 보를 냈습니다.\n이겼습니다."},
-			{"상대방은 가위를 냈습니다.\n이겼습니다.", "상대방은 바위를 냈습니다.\n비겼습니다.", "상대방은 보를 냈습니다.\n졌습니다."},
-			{"상대방은 가위를 냈습니다.\n졌습니다.", "상대방은 바위를 냈습니다.\n이겼습니다.", "상대방은 보를 냈습니다.\n비겼습니다."} 
-		};
-		
-		System.out.println(result[playerMark][computerMark]);
-	}
-	
-	// player 승:1 패:2 무:3
-	static int getRealResult(int playerMark, int computerMark){
-		int[][] result = { 
-				{3, 2, 1},
-				{1, 3, 2},
-				{2, 1, 3} 
-		};
-		
-		return result[playerMark][computerMark];
-	}
-	
-	
-	static int getBettingResult(int realResult, int bettingResult, int bettingScore, int score) {
-		if(realResult == bettingResult) {
-			System.out.println("베팅에 성공했습니다.");
-			System.out.println("베팅한 점수 [ " + bettingScore + " ]의 2배만큼 점수가 증가합니다.");
-			score = bettingScore * 2;
-		}else {
-			System.out.println("베팅에 실패했습니다.");
-			System.out.println("베팅한 점수 [ " + bettingScore + " ] 만큼 점수가 감소합니다.");
-			score -= bettingScore;
-		}
-		
-		return score;
-	}
+
 }
