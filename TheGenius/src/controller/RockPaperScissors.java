@@ -1,10 +1,11 @@
-package view;
+package controller;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class RockPaperScissorsMain {
-	public static void main(String[] args) {
+public class RockPaperScissors {
+	
+	public void RPgamestart(){
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println(";;!~~~~~~~~~~--------~--~~---~~~~~~---~~~~~~~~~~~~~~~~---~---~----------~----~~~~~~~~~~~~~----~~~~~---~~-----------~~~~~~~~-~*$$$$\r\n"
@@ -63,29 +64,7 @@ public class RockPaperScissorsMain {
 	  }
 	
 	
-	static void showResult(int playerMark, int computerMark){
-		String[][] result = { 
-			{"상대방은 가위를 냈습니다.\n비겼습니다.", "상대방은 바위를 냈습니다.\n졌습니다.", "상대방은 보를 냈습니다.\n이겼습니다."},
-			{"상대방은 가위를 냈습니다.\n이겼습니다.", "상대방은 바위를 냈습니다.\n비겼습니다.", "상대방은 보를 냈습니다.\n졌습니다."},
-			{"상대방은 가위를 냈습니다.\n졌습니다.", "상대방은 바위를 냈습니다.\n이겼습니다.", "상대방은 보를 냈습니다.\n비겼습니다."} 
-		};
-		
-		System.out.println(result[playerMark][computerMark]);
-	}
-	
-	// player 승:1 패:2 무:3
-	static int getRealResult(int playerMark, int computerMark){
-		int[][] result = { 
-				{3, 2, 1},
-				{1, 3, 2},
-				{2, 1, 3} 
-		};
-		
-		return result[playerMark][computerMark];
-	}
-	
-	
-	static int getBettingResult(int realResult, int bettingResult, int bettingScore, int score) {
+	public int getBettingResult(int realResult, int bettingResult, int bettingScore, int score) {
 		if(realResult == bettingResult) {
 			System.out.println("베팅에 성공했습니다.");
 			System.out.println("베팅한 점수 [ " + bettingScore + " ]의 2배만큼 점수가 증가합니다.");
@@ -97,5 +76,24 @@ public class RockPaperScissorsMain {
 		}
 		
 		return score;
+	}
+	
+	public int getRealResult(int playerMark, int computerMark){
+		int[][] result = { 
+				{3, 2, 1},
+				{1, 3, 2},
+				{2, 1, 3} 
+		};
+		
+		return result[playerMark][computerMark];
+	}
+	public void showResult(int playerMark, int computerMark){
+		String[][] result = { 
+			{"상대방은 가위를 냈습니다.\n비겼습니다.", "상대방은 바위를 냈습니다.\n졌습니다.", "상대방은 보를 냈습니다.\n이겼습니다."},
+			{"상대방은 가위를 냈습니다.\n이겼습니다.", "상대방은 바위를 냈습니다.\n비겼습니다.", "상대방은 보를 냈습니다.\n졌습니다."},
+			{"상대방은 가위를 냈습니다.\n졌습니다.", "상대방은 바위를 냈습니다.\n이겼습니다.", "상대방은 보를 냈습니다.\n비겼습니다."} 
+		};
+		
+		System.out.println(result[playerMark][computerMark]);
 	}
 }

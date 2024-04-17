@@ -41,6 +41,7 @@ public class MemberCon {
 		
 	
 	}
+
 	
 	public void delete(MemberDTO dto) {
 		MemberDAO dao = new MemberDAO();
