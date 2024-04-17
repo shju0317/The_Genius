@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 public class MainCon {
     public static final String BLACK    = "\u001B[30m" ;

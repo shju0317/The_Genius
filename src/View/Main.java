@@ -1,10 +1,10 @@
-package View;
+package view;
 
 import java.util.Scanner;
 
-import Controller.MainCon;
-import Controller.MemberCon;
-import Model.MemberDTO;
+import controller.MainCon;
+import controller.MemberCon;
+import model.MemberDTO;
 
 
 

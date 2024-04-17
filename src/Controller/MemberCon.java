@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Model.MemberDAO;
-import Model.MemberDTO;
+import model.MemberDAO;
+import model.MemberDTO;
 
 
 
